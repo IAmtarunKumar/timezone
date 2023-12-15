@@ -43,6 +43,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(`${process.env.port}`, () => {
+app.listen(`${process.env.port}` || 5500, () => {
   console.log(`running server on port ${process.env.port}`);
 });
