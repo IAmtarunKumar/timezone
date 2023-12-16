@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { format, addHours, addMinutes } = require("date-fns-tz");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -74,11 +74,11 @@ app.get("/new", (req, res) => {
   console.log("Asia/Kolkata", formattedDateMumbai);
 
   res.send({
-    date,
-    formattedDateLondon,
-    formattedDateMumbai,
-    formattedDateSydney,
-    formattedDateTokyo,
+    currentDate: date,
+    "Europe/London": formattedDateLondon,
+    "Asia/Kolkata": formattedDateMumbai,
+    "Australia/Sydney": formattedDateSydney,
+    "Asia/Tokyo": formattedDateTokyo,
   });
 });
 
